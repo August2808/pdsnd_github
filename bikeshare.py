@@ -107,9 +107,8 @@ def time_stats(df):
 
     # display the most common month
 
-    common_month = df['month'].mode()[0]
-    most_common_month = months[common_month-1]
-    print('The most common month is {}.'.format(most_common_month.title()))
+    most_common_month = df['month'].value_counts().idxmax()
+    print('The most common month is {}.'.format(most_common_month))
 
     # display the most common day of week
     common_day_of_the_week = df['day_of_week'].mode()[0]
@@ -130,17 +129,12 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-    start_station_count = df.groupby('Start Station')['Start Station'].count()
-    common_start_station_count = max(start_station_count)
-    commonly_used_start_station = start_station_count[(start_station_count == common_start_station_count)].index[0]
-    print('The most commonly used start station was {}. It was used {} times.'.format(commonly_used_start_station, common_start_station_count))
+    most_common_start_station = df['Start Station'].value_counts().idxmax()
+    print("The most commonly used start station :", most_common_start_station)
 
     # display most commonly used end station
-    end_station_count = df.groupby('End Station')['End Station'].count()
-    common_end_station_count = max(end_station_count)
-    commonly_used_end_station = end_station_count[(end_station_count == common_end_station_count)].index[0]
-    print('The most commonly used start station was {}. It was used {} times.'.format(commonly_used_end_station, common_end_station_count))
-
+    most_common_end_station = df['End Station'].value_counts().idxmax()
+    print("The most commonly used end station :", most_common_end_station)
 
     # display most frequent combination of start station and end station trips
     most_frequent_start_end_station_trips = df[['Start Station', 'End Station']].mode().loc[0]
