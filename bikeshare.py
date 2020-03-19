@@ -19,20 +19,20 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     while True:
         city = input('Kindly specify the city for the analysis(Chicago, New York City, Washington):').lower()
         if city in city_list:
            break
     # get user input for month (all, january, february, ... , june)
-    prompt1 = input('Would you want to limit your analysis to a specific month,[yes or no]? :')
+    prompt1 = input('Do you want to limit your analysis to a specific month,[yes or no]? :')
     if prompt1 == 'yes':
         month = input('Kindly specify the month for the analysis(between January to June):').lower()
     else:
         month = 'all'
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    prompt1 = input('Would you want to limit your analysis to a specific day,[yes or no]? :')
+    prompt1 = input('Do you want to limit your analysis to a specific day,[yes or no]? :')
     if prompt1 == 'yes':
         day = input('Kindly enter day of the week :')
     else:
@@ -88,7 +88,7 @@ def view_data(df):
         print(data)
     else:
         print("Let's proceed")
-    
+
     prompt3 = input(' Would you like to view some rows from the bottom of the data? [yes, no] :')
     if prompt3 == 'yes':
         num_of_rows = int(input('Kindly specify the number of rows of data you want to view: '))
@@ -97,7 +97,7 @@ def view_data(df):
         print(data)
     else:
         print("Let's proceed to the data analysis")
-            
+
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -182,7 +182,7 @@ def user_stats(df):
         print(' {}: {}'.format(user_type_counts.index[index], user_type_count))
 
     # Display counts of gender
-    
+
     if 'Gender' in df.columns:
         print('Count of gender types \n')
         gender_type_counts = df.groupby('Gender')['Gender'].count()
