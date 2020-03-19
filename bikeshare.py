@@ -19,7 +19,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    
+
     while True:
         city = input('Kindly specify the city for the analysis(Chicago, New York City, Washington):').lower()
         if city in city_list:
@@ -88,7 +88,7 @@ def view_data(df):
         print(data)
     else:
         print("Let's proceed")
-    
+
     prompt3 = input(' Would you like to view some rows from the bottom of the data? [yes, no] :')
     if prompt3 == 'yes':
         num_of_rows = int(input('Kindly specify the number of rows of data you want to view: '))
@@ -97,7 +97,7 @@ def view_data(df):
         print(data)
     else:
         print("Let's proceed to the data analysis")
-            
+
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -107,9 +107,8 @@ def time_stats(df):
 
     # display the most common month
 
-    common_month = df['month'].mode()[0]
-    most_common_month = months[common_month-1]
-    print('The most common month is {}.'.format(most_common_month.title()))
+    most_common_month = df['month'].value_counts().idxmax()
+    print('The most common month is {}.'.format(most_common_month))
 
     # display the most common day of week
     common_day_of_the_week = df['day_of_week'].mode()[0]
@@ -182,7 +181,7 @@ def user_stats(df):
         print(' {}: {}'.format(user_type_counts.index[index], user_type_count))
 
     # Display counts of gender
-    
+
     if 'Gender' in df.columns:
         print('Count of gender types \n')
         gender_type_counts = df.groupby('Gender')['Gender'].count()
