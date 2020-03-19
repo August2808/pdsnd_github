@@ -2,7 +2,7 @@
 3/2/2020
 
 ### Project Title
-#**Explore US Bikeshare data**
+**Explore US Bikeshare data**
 
 ### Description
 In this project, I used *Python* codes to explore data related to bike
@@ -10,6 +10,7 @@ share systems for three major cities in the *United States* - namely;
 * Chicago
 * New York City and
 * Washington.
+
 The code is very interactive as it solicits inputs from the user, and
 based on those inputs, imports city data and answers interesting questions
 about the data by computing descriptive statistics.
@@ -25,7 +26,7 @@ the *bikeshare.py* file. They are:
 Some useful online sources that provided needed information for the
 completion of this project were [stackoverflow.com][1], [pandas.pydata.org][2],
 [geeksforgeeks.org][3], [tuttorialspoint.com][4], and
-[Hakan Ozler's bikeshare repository][5]
+[Hakan Ozler's bikeshare repository][5].
 
 [1]: https://stackoverflow.com
 
