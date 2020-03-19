@@ -129,10 +129,8 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-    start_station_count = df.groupby('Start Station')['Start Station'].count()
-    common_start_station_count = max(start_station_count)
-    commonly_used_start_station = start_station_count[(start_station_count == common_start_station_count)].index[0]
-    print('The most commonly used start station was {}. It was used {} times.'.format(commonly_used_start_station, common_start_station_count))
+    most_common_start_station = df['Start Station'].value_counts().idxmax()
+    print("The most commonly used start station :", most_common_start_station)
 
     # display most commonly used end station
     end_station_count = df.groupby('End Station')['End Station'].count()
